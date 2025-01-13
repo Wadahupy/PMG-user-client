@@ -15,14 +15,14 @@ const Header = () => {
   const [openNav, setOpenNav] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const isAuth = localStorage.getItem('refreshToken')
+  const isAuth = localStorage.getItem("refreshToken");
 
   const logout = () => {
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
 
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   React.useEffect(() => {
     window.addEventListener(
@@ -106,10 +106,7 @@ const Header = () => {
 
   return (
     <div className="container w-full mx-auto lg:px-5">
-      <Navbar
-        className="px-5 lg:px-0"
-        shadow={false}
-      >
+      <Navbar className="px-5 lg:px-0" shadow={false}>
         <div className="relative flex items-center justify-between text-black">
           <Typography
             as="a"
@@ -128,7 +125,7 @@ const Header = () => {
             {navList}
           </div>
 
-          {!isAuth ?
+          {!isAuth ? (
             <Button
               variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
               size="md"
@@ -138,9 +135,7 @@ const Header = () => {
             >
               <p className="text-base font-bold font-dm_sans">Sign In</p>
             </Button>
-
-            :
-
+          ) : (
             <Button
               variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
               size="md"
@@ -150,7 +145,7 @@ const Header = () => {
             >
               <p className="text-base font-bold font-dm_sans">Log out</p>
             </Button>
-          }
+          )}
 
           <IconButton
             variant="text"
@@ -166,16 +161,28 @@ const Header = () => {
         </div>
         <Collapse open={openNav}>
           <div className="visible lg:invisible">{navList}</div>
-          <Button
-            fullWidth
-            variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
-            size="md"
-            color={location.pathname === "/sign-in" ? "yellow" : "black"}
-            className="block mt-4 border border-black lg:hidden"
-            onClick={() => navigate("/sign-in")}
-          >
-            <p className="text-base font-bold font-dm_sans">Sign In</p>
-          </Button>
+          {!isAuth ? (
+            <Button
+              fullWidth
+              variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
+              size="md"
+              color={location.pathname === "/sign-in" ? "yellow" : "black"}
+              className="block mt-4 border border-black lg:hidden"
+              onClick={() => navigate("/sign-in")}
+            >
+              <p className="text-base font-bold font-dm_sans">Sign In</p>
+            </Button>
+          ) : (
+            <Button
+              variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
+              size="md"
+              color={location.pathname === "/sign-in" ? "yellow" : "black"}
+              className="block w-full mt-4 border border-black hover:bg-red-400 lg:flex font-dm_sans"
+              onClick={logout}
+            >
+              <p className="text-base font-bold font-dm_sans">Log out</p>
+            </Button>
+          )}
         </Collapse>
       </Navbar>
     </div>

@@ -15,30 +15,30 @@ const Home = () => {
       title: "Memorial Planning",
       description:
         "Simplify the process with thoughtful service options designed for your peace of mind.",
-      image: "../src/assets/images/home-bg.png",
+      image: "../src/assets/images/home-card-bg-1.png",
     },
     {
       title: "Resting Place Options",
       description:
         "Choose from beautifully maintained spaces dedicated to honoring your pet’s memory.",
-      image: "../src/assets/images/home-bg.png",
+      image: "../src/assets/images/home-card-bg-2.png",
     },
     {
       title: "Support & Resources",
       description:
         "Access compassionate guidance and resources to help you through this journey.",
-      image: "../src/assets/images/home-bg.png",
+      image: "../src/assets/images/home-card-bg-3.png",
     },
   ];
 
   const testimonialItems = [
     {
-      image: "../src/assets/images/home-bg.png",
+      image: "../src/assets/images/testimonial-1.png",
       text: "Losing our beloved Max was one of the hardest moments for our family. Pet Cemetery Management and Services made the process so much easier, handling everything with care and professionalism. We are grateful for the dignified resting place they provided for him.",
       author: "Maria S.",
     },
     {
-      image: "../src/assets/images/home-bg.png",
+      image: "../src/assets/images/testimonial-2.png",
       text: "The team was incredibly compassionate and supportive during such a difficult time. They helped us honor Bella's memory in a way that truly reflected how much she meant to us. Thank you for making this experience as smooth as possible.",
       author: "John D.",
     },
@@ -91,8 +91,7 @@ const Home = () => {
             <a
               className="flex items-center justify-center gap-2 mx-auto text-sm font-normal w-max hover:underline my-7 font-dm_sans"
               href="/services"
-            // onClick={() => navigate("/services")}
-
+              // onClick={() => navigate("/services")}
             >
               View more
               <HiArrowSmRight />
@@ -139,9 +138,10 @@ const Home = () => {
                 </h2>
               </div>
               <p className="text-base font-dm_sans text-pretty">
-                If you need assistance or more information about our services, feel
-                free to reach out. Our team is ready to answer any questions you may
-                have and guide you through the memorialization process.
+                If you need assistance or more information about our services,
+                feel free to reach out. Our team is ready to answer any
+                questions you may have and guide you through the memorialization
+                process.
               </p>
             </div>
 
